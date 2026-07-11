@@ -1,0 +1,6 @@
+{
+  "name": "Sinhala Katha (සිංහල කතා)",
+  "description": "An elegant, responsive Sinhala stories platform featuring registration, login, category menus, and a robust admin panel to publish and manage multi-part chapters with a sophisticated gold-accented dark aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

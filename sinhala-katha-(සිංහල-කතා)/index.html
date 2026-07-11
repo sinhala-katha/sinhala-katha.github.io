@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Suppress and filter cross-origin script errors and console noises immediately -->
+    <script>
+      (function() {
+        // Global error catcher
+        window.onerror = function(message, source, lineno, colno, error) {
+          if (!message || message === 'Script error.' || (source && (source.indexOf('effectivecpmnetwork') > -1 || source.indexOf('highperformanceformat') > -1))) {
+            return true; // Prevents error from bubbling up
+          }
+        };
+        // Global event-based error catcher
+        window.addEventListener('error', function(e) {
+          var message = e.message || '';
+          var filename = e.filename || '';
+          if (message.indexOf('Script error.') > -1 || filename.indexOf('effectivecpmnetwork') > -1 || filename.indexOf('highperformanceformat') > -1) {
+            e.preventDefault();
+            e.stopPropagation();
+            return true;
+          }
+        }, true);
+        // Console error filtering
+        var originalConsoleError = console.error;
+        console.error = function() {
+          var args = Array.prototype.slice.call(arguments);
+          var msg = args.join(' ');
+          if (msg.indexOf('Script error.') > -1 || msg.indexOf('effectivecpmnetwork') > -1 || msg.indexOf('highperformanceformat') > -1 || msg.indexOf('CORS') > -1) {
+            return;
+          }
+          originalConsoleError.apply(console, arguments);
+        };
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinhala Katha (සිංහල කතා)</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
